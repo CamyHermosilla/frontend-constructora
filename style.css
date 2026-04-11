@@ -129,3 +129,42 @@
   background-color: #ffd60a;
   color: #001d3d;
 }
+
+/*Formulario Cotización*/
+.form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.hidden {
+  display: none;
+}
+button {
+  margin-top: 15px;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background: #0056b3;
+}

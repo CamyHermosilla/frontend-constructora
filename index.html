@@ -82,31 +82,52 @@
         <p>Precio: 80.000</p>
       </div>
     </section>
-    <section class="section-formulario">
-      <!--Sección de Formulario-->
-      <form action="" class="formulario">
-        <h2 class="titulo-formulario">Contáctanos</h2>
 
-        <label for="name">
-          Nombre: <input type="text" id="name" name="user_name" />
-        </label>
+    <section class="formulario-cotizacion">
+      <div class="form-container">
+        <h2>Contáctanos</h2>
 
-        <label for="nombre">Email: <input type="email" /></label>
+        <form id="formConstructora">
+          <label>Nombre</label>
+          <input type="text" id="nombre" required />
 
-        <label for="comentario"
-          >Comentario:
-          <input
-            type=" "
-            id="comentario"
-            name="comentario"
-            rows="4"
-            cols="50"
-            placeholder="Escribe aquí..."
-          />
-        </label>
+          <label>Correo</label>
+          <input type="email" id="correo" required />
 
-        <button class="boton-formulario">Enviar</button>
-      </form>
+          <label>Tipo de servicio</label>
+          <select id="servicio" required>
+            <option value="">Seleccione</option>
+            <option value="construccion">Construcción</option>
+            <option value="remodelacion">Remodelación</option>
+            <option value="cotizacion">Cotización</option>
+          </select>
+
+          <!-- Campo condicional -->
+          <div id="tipoProyectoDiv" class="hidden">
+            <label>Tipo de proyecto</label>
+            <select id="tipoProyecto">
+              <option value="">Seleccione</option>
+              <option value="casa">Casa</option>
+              <option value="edificio">Edificio</option>
+              <option value="oficina">Oficina</option>
+            </select>
+          </div>
+
+          <!-- Campo adicional -->
+          <div id="areaDiv" class="hidden">
+            <label>Área aproximada (m²)</label>
+            <input type="number" id="area" />
+          </div>
+
+          <label>Mensaje</label>
+          <textarea id="mensaje" rows="4"></textarea>
+
+          <button type="submit">Enviar</button>
+        </form>
+
+        <p id="respuesta"></p>
+      </div>
     </section>
+    <script src="js.js"></script>
   </body>
 </html>
