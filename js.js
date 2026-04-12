@@ -1,3 +1,38 @@
+const proyectos = [
+  {
+    nombre: "Paysandú",
+    ciudad: "Bogotá",
+    estado: "terminado",
+    progreso: 100,
+    tipo: "Residencial",
+    imagen: "src/Paysandú_Imagen.jpg"
+  },
+  {
+    nombre: "Rivadaira",
+    ciudad: "Bogotá",
+    estado: "construccion",
+    progreso: 50,
+    tipo: "Residencial",
+    imagen: "src/Rivadaira_Imagen.jpg"
+  },
+  {
+    nombre: "Lavalleja",
+    ciudad: "Medellín",
+    estado: "terminado",
+    progreso: 100,
+    tipo: "Residencial",
+    imagen: "src/Lavalleja_Imagen.jpg"
+  },
+  {
+    nombre: "Tacuarembó",
+    ciudad: "Medellín",
+    estado: "construccion",
+    progreso: 50,
+    tipo: "Comercial",
+    imagen: "src/Tacuarembó_Imagen.jpg"
+  }
+];
+
 // Hero
 
 function whatsapp() {
