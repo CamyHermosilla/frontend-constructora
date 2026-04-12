@@ -178,3 +178,10 @@ function mostrarResultados(lista) {
     });
   }
 }
+
+filtroEstado.addEventListener("change", filtrarProyectos);
+filtroCiudad.addEventListener("change", filtrarProyectos);
+filtroTipo.addEventListener("change", filtrarProyectos);
+
+// Mostrar todos al inicio
+mostrarResultados(proyectos);
