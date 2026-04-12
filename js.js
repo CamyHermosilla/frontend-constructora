@@ -143,3 +143,38 @@ function filtrarProyectos() {
 
   mostrarResultados(filtrados);
 }
+
+function mostrarResultados(lista) {
+  contenedorResultados.innerHTML = "";
+
+  // Agrupar por ciudad
+  const agrupados = {};
+
+  lista.forEach(p => {
+    if (!agrupados[p.ciudad]) {
+      agrupados[p.ciudad] = [];
+    }
+    agrupados[p.ciudad].push(p);
+  });
+
+  // Render
+  for (const ciudad in agrupados) {
+    const tituloCiudad = document.createElement("h3");
+    tituloCiudad.textContent = ciudad;
+    contenedorResultados.appendChild(tituloCiudad);
+
+    agrupados[ciudad].forEach(p => {
+      const div = document.createElement("div");
+      div.classList.add("resultado");
+
+      div.innerHTML = `
+        <img src="${p.imagen}" width="200"/>
+        <p><strong>Nombre:</strong> ${p.nombre}</p>
+        <p><strong>Estado:</strong> ${p.progreso}%</p>
+        <p><strong>Tipo:</strong> ${p.tipo}</p>
+      `;
+
+      contenedorResultados.appendChild(div);
+    });
+  }
+}
