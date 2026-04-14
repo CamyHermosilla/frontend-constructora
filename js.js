@@ -5,7 +5,7 @@ const proyectos = [
     estado: "terminado",
     progreso: 100,
     tipo: "Residencial",
-    imagen: "src/Paysandú_Imagen.jpg"
+    imagen: "src/Paysandú_Imagen.jpg",
   },
   {
     nombre: "Rivadaira",
@@ -13,7 +13,7 @@ const proyectos = [
     estado: "construccion",
     progreso: 50,
     tipo: "Residencial",
-    imagen: "src/Rivadaira_Imagen.jpg"
+    imagen: "src/Rivadaira_Imagen.jpg",
   },
   {
     nombre: "Lavalleja",
@@ -21,7 +21,7 @@ const proyectos = [
     estado: "terminado",
     progreso: 100,
     tipo: "Residencial",
-    imagen: "src/Lavalleja_Imagen.jpg"
+    imagen: "src/Lavalleja_Imagen.jpg",
   },
   {
     nombre: "Tacuarembó",
@@ -29,8 +29,8 @@ const proyectos = [
     estado: "construccion",
     progreso: 50,
     tipo: "Comercial",
-    imagen: "src/Tacuarembó_Imagen.jpg"
-  }
+    imagen: "src/Tacuarembó_Imagen.jpg",
+  },
 ];
 
 // Hero
@@ -94,10 +94,12 @@ form.addEventListener("submit", function (e) {
   areaDiv.classList.add("hidden");
 });
 
+//Animación del Carrusel, selección del documento
 let index = 0;
 const slides = document.getElementById("slides");
 const totalSlides = document.querySelectorAll(".slide");
 
+//función de actualización del carrusel
 function actualizarCarrusel() {
   slides.style.transform = `translateX(-${index * 100}%)`;
 
@@ -133,7 +135,7 @@ function filtrarProyectos() {
   const ciudad = filtroCiudad.value;
   const tipo = filtroTipo.value;
 
-  const filtrados = proyectos.filter(p => {
+  const filtrados = proyectos.filter((p) => {
     return (
       (!estado || p.estado === estado) &&
       (!ciudad || p.ciudad === ciudad) &&
@@ -150,7 +152,7 @@ function mostrarResultados(lista) {
   // Agrupar por ciudad
   const agrupados = {};
 
-  lista.forEach(p => {
+  lista.forEach((p) => {
     if (!agrupados[p.ciudad]) {
       agrupados[p.ciudad] = [];
     }
@@ -163,7 +165,7 @@ function mostrarResultados(lista) {
     tituloCiudad.textContent = ciudad;
     contenedorResultados.appendChild(tituloCiudad);
 
-    agrupados[ciudad].forEach(p => {
+    agrupados[ciudad].forEach((p) => {
       const div = document.createElement("div");
       div.classList.add("resultado");
 
