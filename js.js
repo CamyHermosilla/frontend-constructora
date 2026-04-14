@@ -1,3 +1,38 @@
+const proyectos = [
+  {
+    nombre: "Paysandú",
+    ciudad: "Bogotá",
+    estado: "terminado",
+    progreso: 100,
+    tipo: "Residencial",
+    imagen: "src/Paysandú_Imagen.jpg"
+  },
+  {
+    nombre: "Rivadaira",
+    ciudad: "Bogotá",
+    estado: "construccion",
+    progreso: 50,
+    tipo: "Residencial",
+    imagen: "src/Rivadaira_Imagen.jpg"
+  },
+  {
+    nombre: "Lavalleja",
+    ciudad: "Medellín",
+    estado: "terminado",
+    progreso: 100,
+    tipo: "Residencial",
+    imagen: "src/Lavalleja_Imagen.jpg"
+  },
+  {
+    nombre: "Tacuarembó",
+    ciudad: "Medellín",
+    estado: "construccion",
+    progreso: 50,
+    tipo: "Comercial",
+    imagen: "src/Tacuarembó_Imagen.jpg"
+  }
+];
+
 // Hero
 
 function whatsapp() {
@@ -87,3 +122,66 @@ function contactar() {
 setInterval(() => {
   mover(1);
 }, 4000);
+
+const filtroEstado = document.getElementById("filtroEstado");
+const filtroCiudad = document.getElementById("filtroCiudad");
+const filtroTipo = document.getElementById("filtroTipo");
+const contenedorResultados = document.getElementById("resultados");
+
+function filtrarProyectos() {
+  const estado = filtroEstado.value;
+  const ciudad = filtroCiudad.value;
+  const tipo = filtroTipo.value;
+
+  const filtrados = proyectos.filter(p => {
+    return (
+      (!estado || p.estado === estado) &&
+      (!ciudad || p.ciudad === ciudad) &&
+      (!tipo || p.tipo === tipo)
+    );
+  });
+
+  mostrarResultados(filtrados);
+}
+
+function mostrarResultados(lista) {
+  contenedorResultados.innerHTML = "";
+
+  // Agrupar por ciudad
+  const agrupados = {};
+
+  lista.forEach(p => {
+    if (!agrupados[p.ciudad]) {
+      agrupados[p.ciudad] = [];
+    }
+    agrupados[p.ciudad].push(p);
+  });
+
+  // Render
+  for (const ciudad in agrupados) {
+    const tituloCiudad = document.createElement("h3");
+    tituloCiudad.textContent = ciudad;
+    contenedorResultados.appendChild(tituloCiudad);
+
+    agrupados[ciudad].forEach(p => {
+      const div = document.createElement("div");
+      div.classList.add("resultado");
+
+      div.innerHTML = `
+        <img src="${p.imagen}" width="200"/>
+        <p><strong>Nombre:</strong> ${p.nombre}</p>
+        <p><strong>Estado:</strong> ${p.progreso}%</p>
+        <p><strong>Tipo:</strong> ${p.tipo}</p>
+      `;
+
+      contenedorResultados.appendChild(div);
+    });
+  }
+}
+
+filtroEstado.addEventListener("change", filtrarProyectos);
+filtroCiudad.addEventListener("change", filtrarProyectos);
+filtroTipo.addEventListener("change", filtrarProyectos);
+
+// Mostrar todos al inicio
+mostrarResultados(proyectos);

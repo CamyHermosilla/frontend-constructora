@@ -329,3 +329,21 @@ button:hover {
 .next {
   right: 10px;
 }
+
+
+.filtros {
+  padding: 30px;
+  text-align: center;
+}
+
+#resultados {
+  padding: 30px;
+}
+
+.resultado {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #f9f9f9;
+}
